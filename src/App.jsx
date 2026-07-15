@@ -124,7 +124,6 @@ function App() {
           <h1 className="title">
             <span className="title-icon">🪙</span> 赛博硬币
           </h1>
-          <p className="subtitle">按住蓄力，松开抛币！</p>
 
           {/* Coin */}
           <div className="coin-stage">
