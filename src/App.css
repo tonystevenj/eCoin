@@ -5,19 +5,22 @@
 }
 
 :root {
-  --primary: #6c5ce7;
-  --primary-light: #a29bfe;
-  --accent: #fd79a8;
-  --gold: #fdcb6e;
-  --dark: #0a0a1a;
-  --dark-card: #1a1a2e;
-  --text: #ffffff;
-  --text-dim: #a0a0b0;
+  --primary: #b8d4e3;
+  --primary-deep: #7eb8d4;
+  --accent: #f2b5c4;
+  --accent-deep: #e8879e;
+  --mint: #c8e6d4;
+  --cream: #faf8f5;
+  --card: #ffffff;
+  --text: #4a4a5a;
+  --text-dim: #9a9aaa;
+  --border: rgba(0, 0, 0, 0.06);
+  --shadow: rgba(180, 160, 140, 0.12);
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--dark);
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--cream);
   color: var(--text);
   overflow: hidden;
   height: 100vh;
@@ -41,9 +44,9 @@ body {
   position: fixed;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(253, 121, 168, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(253, 203, 110, 0.08) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 30%, rgba(242, 181, 196, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(184, 212, 227, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(200, 230, 212, 0.12) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -68,7 +71,7 @@ body {
 
 .power-label {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1px;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -79,14 +82,14 @@ body {
 }
 
 .power-bar-track {
-  width: 24px;
+  width: 22px;
   height: 300px;
-  background: var(--dark-card);
-  border-radius: 12px;
+  background: #f0ece8;
+  border-radius: 11px;
   position: relative;
   overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .power-bar-fill {
@@ -95,18 +98,18 @@ body {
   left: 0;
   right: 0;
   border-radius: 10px;
-  background: linear-gradient(to top, #4ecdc4, #44bd64);
+  background: linear-gradient(to top, var(--mint), var(--primary));
   will-change: height;
 }
 
 .power-bar-fill.charging {
-  box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+  box-shadow: 0 0 12px rgba(184, 212, 227, 0.4);
 }
 
 .power-bar-fill.maxed {
-  background: linear-gradient(to top, #ff6b6b, #ff0000) !important;
+  background: linear-gradient(to top, var(--accent), var(--accent-deep)) !important;
   animation: pulse-bar 0.3s ease-in-out infinite alternate;
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 16px rgba(242, 181, 196, 0.4);
 }
 
 @keyframes pulse-bar {
@@ -124,14 +127,14 @@ body {
   position: absolute;
   left: 4px;
   right: 4px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.15);
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 1px;
 }
 
 .power-time {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--text-dim);
   font-variant-numeric: tabular-nums;
 }
@@ -147,25 +150,24 @@ body {
 }
 
 .title {
-  font-size: 48px;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--gold), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 38px;
+  font-weight: 400;
+  color: #6b6578;
+  font-family: 'Noto Serif SC', 'Hiragino Mincho ProN', 'Yu Mincho', 'Source Han Serif SC', serif;
+  letter-spacing: 4px;
   display: flex;
   align-items: center;
   gap: 12px;
+  letter-spacing: -0.5px;
 }
 
 .title-icon {
-  -webkit-text-fill-color: initial;
-  font-size: 40px;
+  font-size: 36px;
 }
 
 .subtitle {
   color: var(--text-dim);
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
 }
 
@@ -209,18 +211,18 @@ body {
   justify-content: center;
   backface-visibility: hidden;
   overflow: hidden;
-  border: 3px solid rgba(180, 185, 190, 0.8);
+  border: 2px solid rgba(200, 195, 185, 0.6);
   box-shadow: 
-    0 0 20px rgba(180, 185, 195, 0.2),
-    inset 0 0 20px rgba(0, 0, 0, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
 .coin-heads {
-  background: #b8b8be;
+  background: #f5f0eb;
 }
 
 .coin-tails {
-  background: #b8b8be;
+  background: #f5f0eb;
   transform: rotateX(180deg);
 }
 
@@ -316,9 +318,9 @@ body {
   width: 100px;
   height: 16px;
   margin-left: -50px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 50%;
-  filter: blur(4px);
+  filter: blur(6px);
   animation: shadow-move var(--flip-duration) cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
 }
 
@@ -339,15 +341,16 @@ body {
   justify-content: center;
   gap: 12px;
   padding: 12px 24px;
-  background: var(--dark-card);
+  background: var(--card);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
   opacity: 0;
   transform: scale(0.9);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 56px;
   min-width: 200px;
   visibility: hidden;
+  box-shadow: 0 2px 12px var(--shadow);
 }
 
 .result.show {
@@ -357,69 +360,69 @@ body {
 }
 
 .result.rare {
-  border-color: var(--gold);
-  box-shadow: 0 0 30px rgba(253, 203, 110, 0.3);
-  animation: rare-glow 1s ease-in-out infinite alternate;
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(242, 181, 196, 0.25);
+  animation: rare-glow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes rare-glow {
-  from { box-shadow: 0 0 20px rgba(253, 203, 110, 0.2); }
-  to { box-shadow: 0 0 40px rgba(253, 203, 110, 0.5); }
-}
-
-.result-emoji {
-  font-size: 32px;
+  from { box-shadow: 0 2px 16px rgba(242, 181, 196, 0.2); }
+  to { box-shadow: 0 4px 28px rgba(242, 181, 196, 0.35); }
 }
 
 .result-text {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text);
 }
 
 /* ===== BUTTON ===== */
 .toss-btn {
   position: relative;
-  padding: 18px 48px;
-  min-width: 240px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  padding: 16px 44px;
+  min-width: 220px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   border: none;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary-deep), var(--primary));
   color: white;
   cursor: pointer;
   overflow: hidden;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(126, 184, 212, 0.3);
   touch-action: none;
 }
 
 .toss-btn:hover:not(.disabled) {
-  box-shadow: 0 6px 30px rgba(108, 92, 231, 0.6);
+  box-shadow: 0 6px 24px rgba(126, 184, 212, 0.4);
+  transform: translateY(-1px);
 }
 
 .toss-btn:active:not(.disabled) {
-  box-shadow: 0 2px 15px rgba(108, 92, 231, 0.4);
+  box-shadow: 0 2px 10px rgba(126, 184, 212, 0.3);
+  transform: translateY(0);
 }
 
 .toss-btn.charging {
-  background: linear-gradient(135deg, var(--accent), #e84393);
-  box-shadow: 0 4px 30px rgba(253, 121, 168, 0.5);
-  animation: btn-pulse 0.5s ease-in-out infinite alternate;
+  background: linear-gradient(135deg, var(--accent-deep), var(--accent));
+  box-shadow: 0 4px 20px rgba(242, 181, 196, 0.4);
+  animation: btn-pulse 0.6s ease-in-out infinite alternate;
 }
 
 @keyframes btn-pulse {
-  from { box-shadow: 0 4px 20px rgba(253, 121, 168, 0.4); }
-  to { box-shadow: 0 4px 40px rgba(253, 121, 168, 0.7); }
+  from { box-shadow: 0 4px 16px rgba(242, 181, 196, 0.3); }
+  to { box-shadow: 0 4px 28px rgba(242, 181, 196, 0.5); }
 }
 
 .toss-btn.disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  background: linear-gradient(135deg, #555, #666);
+  background: linear-gradient(135deg, #c8c8d0, #d8d8e0);
   box-shadow: none;
+  transform: none;
 }
 
 .btn-text {
@@ -430,7 +433,7 @@ body {
 .btn-charge-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15));
   transform-origin: left;
   transition: transform 0.05s linear;
   pointer-events: none;
@@ -439,7 +442,7 @@ body {
 /* ===== ODDS ===== */
 .odds {
   display: flex;
-  gap: 24px;
+  gap: 20px;
 }
 
 .odd-item {
@@ -447,16 +450,21 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-dim);
 }
 
 .odd-item span:first-child {
-  font-size: 20px;
+  font-size: 18px;
+  color: var(--text);
 }
 
 .rare-odd {
-  color: var(--gold);
+  color: var(--accent-deep);
+}
+
+.rare-odd span:first-child {
+  color: var(--accent-deep);
 }
 
 /* ===== RESPONSIVE ===== */

@@ -76,17 +76,10 @@ function App() {
     if (isCharging) releaseCoin()
   }
 
-  const getResultEmoji = () => {
-    if (result === 'heads') return ''
-    if (result === 'tails') return ''
-    if (result === 'edge') return '🧍'
-    return ''
-  }
-
   const getResultText = () => {
-    if (result === 'heads') return '正面！'
-    if (result === 'tails') return '背面！'
-    if (result === 'edge') return '立住了！(仅 1% 概率！)'
+    if (result === 'heads') return '正面'
+    if (result === 'tails') return '背面'
+    if (result === 'edge') return '立住了 · 仅 1% 概率'
     return ''
   }
 
@@ -121,9 +114,7 @@ function App() {
 
         {/* Main Content */}
         <div className="content">
-          <h1 className="title">
-            <span className="title-icon">🪙</span> 赛博硬币
-          </h1>
+          <h1 className="title">赛博硬币</h1>
 
           {/* Coin */}
           <div className="coin-stage">
@@ -148,7 +139,6 @@ function App() {
 
           {/* Result */}
           <div className={`result ${showResult ? 'show' : ''} ${result === 'edge' ? 'rare' : ''}`}>
-            <span className="result-emoji">{getResultEmoji()}</span>
             <span className="result-text">{getResultText()}</span>
           </div>
 
@@ -161,7 +151,7 @@ function App() {
             disabled={isFlipping}
           >
             <span className="btn-text">
-              {isFlipping ? '✨ 抛币中...' : isCharging ? '⚡ 蓄力中...' : '👆 按住抛币'}
+              {isFlipping ? '抛币中...' : isCharging ? '蓄力中...' : '按住抛币'}
             </span>
             <div className="btn-charge-bg" style={{ transform: `scaleX(${power})` }} />
           </button>
